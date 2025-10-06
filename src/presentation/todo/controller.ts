@@ -5,6 +5,7 @@ const todos = [
   { id: 2, text: "Buy bread", completedAt: null },
   { id: 3, text: "Buy butter", completedAt: new Date() },
 ];
+
 export class TodoController {
   constructor() {}
 
