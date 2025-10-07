@@ -7,20 +7,19 @@ POST http://localhost:3000/api/todos
 Content-Type: application/json
 
 {
-    "text": "Buy video games"
+    "text": "Buy milk"
 }
 
 ###
 
-PUT http://localhost:3000/api/todos/1
+PUT http://localhost:3000/api/todos/5
 Content-Type: application/json
 
 {
-    "text": "Actulizado",
-    "completedAt": "2023-10-12"
+    "text": "Buy two hot dog"
 }
 
 ###
 
-DELETE http://localhost:3000/api/todos/1
+DELETE http://localhost:3000/api/todos/3
 Content-Type: application/json

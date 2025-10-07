@@ -15,28 +15,28 @@ export class TodoRoutes {
     router.get("/", todoController.getTodos);
     router.get(
       "/:id",
-      getTodoByIdValidator,
-      validateRequest,
+      // getTodoByIdValidator,
+      // validateRequest,
       todoController.getTodoById
     );
     router.post(
       "/",
-      createTodoValidator,
-      validateRequest,
+      // createTodoValidator,
+      // validateRequest,
       todoController.createTodo
     );
 
     router.put(
       "/:id",
-      updateTodoValidator,
-      validateRequest,
+      // updateTodoValidator,
+      // validateRequest,
       todoController.updateTodo
     );
 
     router.delete(
       "/:id",
-      deleteTodoValidator,
-      validateRequest,
+      // deleteTodoValidator,
+      // validateRequest,
       todoController.deleteTodo
     );
     return router;
