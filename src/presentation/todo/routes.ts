@@ -1,44 +1,22 @@
 import { Router } from "express";
 import { TodoController } from "./controller";
-import {
-  createTodoValidator,
-  deleteTodoValidator,
-  getTodoByIdValidator,
-  updateTodoValidator,
-} from "./validators";
-import { validateRequest } from "./middleware";
+
+import { TodoDatasourceImpl } from "../../infrastructure/datasource/todo.datasource.impl";
+import { TodoRepositoryImpl } from "../../infrastructure/repositories/todo.repository.impl";
 
 export class TodoRoutes {
   static get routes(): Router {
     const router = Router();
-    const todoController = new TodoController();
+    const datasource = new TodoDatasourceImpl();
+    const todoRepository = new TodoRepositoryImpl(datasource);
+    const todoController = new TodoController(todoRepository);
+
     router.get("/", todoController.getTodos);
-    router.get(
-      "/:id",
-      // getTodoByIdValidator,
-      // validateRequest,
-      todoController.getTodoById
-    );
-    router.post(
-      "/",
-      // createTodoValidator,
-      // validateRequest,
-      todoController.createTodo
-    );
+    router.get("/:id", todoController.getTodoById);
+    router.post("/", todoController.createTodo);
+    router.put("/:id", todoController.updateTodo);
+    router.delete("/:id", todoController.deleteTodo);
 
-    router.put(
-      "/:id",
-      // updateTodoValidator,
-      // validateRequest,
-      todoController.updateTodo
-    );
-
-    router.delete(
-      "/:id",
-      // deleteTodoValidator,
-      // validateRequest,
-      todoController.deleteTodo
-    );
     return router;
   }
 }

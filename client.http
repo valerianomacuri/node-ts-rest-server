@@ -7,19 +7,19 @@ POST http://localhost:3000/api/todos
 Content-Type: application/json
 
 {
-    "text": "Buy milk"
+    "text": "Buy anything"
 }
 
 ###
 
-PUT http://localhost:3000/api/todos/5
+PUT http://localhost:3000/api/todos/7
 Content-Type: application/json
 
 {
-    "text": "Buy two hot dog"
+    "text": "Buy a home"
 }
 
 ###
 
-DELETE http://localhost:3000/api/todos/3
+DELETE http://localhost:3000/api/todos/7
 Content-Type: application/json
