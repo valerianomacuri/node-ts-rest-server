@@ -1,20 +1,21 @@
 import express, { Router } from "express";
 import compression from "compression";
 import path from "path";
+import { IServer } from "../../../application/interfaces";
 
-interface Options {
+interface ExpressOptions {
   port: number;
   routes: Router;
   public_path?: string;
 }
 
-export class Server {
+export class ExpressServer implements IServer {
   private app = express();
   private readonly port: number;
   private readonly publicPath: string;
   private readonly routes: Router;
 
-  constructor(options: Options) {
+  constructor(options: ExpressOptions) {
     const { port, public_path = "public", routes } = options;
     this.port = port;
     this.publicPath = public_path;
@@ -26,8 +27,6 @@ export class Server {
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(compression());
-
-    //* Public Folder
     this.app.use(express.static(this.publicPath));
 
     //* Routes
