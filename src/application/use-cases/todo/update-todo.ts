@@ -1,6 +1,6 @@
-import { UpdateTodoDto } from "../../dtos";
-import { TodoEntity } from "../../entities/todo.entity";
-import { TodoRepository } from "../../repositories/todo.repository";
+import { UpdateTodoDto } from "../../../domain/dtos/todos";
+import { TodoEntity } from "../../../domain/entities";
+import { TodoRepository } from "../../../domain/repositories";
 
 export interface UpdateTodoUseCase {
   execute(dto: UpdateTodoDto): Promise<TodoEntity>;

@@ -1,5 +1,5 @@
-import { TodoEntity } from "../../entities/todo.entity";
-import { TodoRepository } from "../../repositories/todo.repository";
+import { TodoEntity } from "../../../domain/entities";
+import { TodoRepository } from "../../../domain/repositories";
 
 export interface DeleteTodoUseCase {
   execute(id: number): Promise<TodoEntity>;

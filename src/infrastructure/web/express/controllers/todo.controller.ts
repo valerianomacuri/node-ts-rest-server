@@ -1,13 +1,13 @@
 import { Request, Response } from "express";
-import { CreateTodoDto, UpdateTodoDto } from "../../domain/dtos";
+import { CreateTodoDto, UpdateTodoDto } from "../../../../domain/dtos/todos";
 import {
   CreateTodo,
   DeleteTodo,
   GetTodo,
   GetTodos,
-  TodoRepository,
   UpdateTodo,
-} from "../../domain";
+} from "../../../../application/use-cases/todo";
+import { TodoRepository } from "../../../../domain/repositories";
 
 export class TodoController {
   constructor(private readonly todoRepository: TodoRepository) {}

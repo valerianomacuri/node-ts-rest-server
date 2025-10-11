@@ -1,6 +1,6 @@
-import { CreateTodoDto } from "../../dtos";
-import { TodoEntity } from "../../entities/todo.entity";
-import { TodoRepository } from "../../repositories/todo.repository";
+import { CreateTodoDto } from "../../../domain/dtos/todos";
+import { TodoEntity } from "../../../domain/entities";
+import { TodoRepository } from "../../../domain/repositories";
 
 export interface CreateTodoUseCase {
   execute(dto: CreateTodoDto): Promise<TodoEntity>;
